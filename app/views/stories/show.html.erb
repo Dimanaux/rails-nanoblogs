@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Content:</strong>
+  <%= @story.content %>
+</p>
+
+<p>
+  <strong>Views count:</strong>
+  <%= @story.views_count %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @story.user %>
+</p>
+
+<%= link_to 'Edit', edit_story_path(@story) %> |
+<%= link_to 'Back', stories_path %>
