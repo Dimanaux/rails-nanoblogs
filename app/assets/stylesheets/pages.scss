@@ -15,8 +15,8 @@ body {
 
 a {
   transition-duration: $animation-duration;
-  color: $light-black;
-  text-decoration: none;
+  color: $medium-black;
+  text-decoration: underline;
 }
 
 a:hover {
@@ -28,6 +28,10 @@ a:hover {
 .page-header {
   color: $medium-black;
   font-size: 2.5em;
+}
+
+.header-item {
+  text-align: center;
 }
 
 .post-container {
@@ -47,12 +51,4 @@ a:hover {
 
 .post-footer {
   color: $light-black;
-}
-
-textarea {
-  border: none;
-}
-
-textarea:active, textarea:hover, textarea:focus {
-  border: none;
 }

@@ -1,56 +1,26 @@
-<p id="notice"><%= notice %></p>
-
-
-<h1>Stories</h1>
-
-
-<% if current_user %>
-  <%= link_to 'sign out', destroy_user_session_path, method: :delete %>
-<% else %>
-  <%= link_to 'sign up', new_user_registration_path %>
-  or
-  <%= link_to 'sign in', new_user_session_path %>
-<% end %>
-
-
-
-<div class="container">
-
-  <div class="row page-header justify-content-md-center" href="#">
-    <a href="">Nanoblogs</a>
-  </div>
-
-  <div class="col-md-6 offset-md-3 container">
-
-    <div class="post-container container">
-      <textarea class="form-control" placeholder="New story?" name="post-content"></textarea>
-    </div>
-
-
-    <!-- posts here -->
-    <% @stories.each do |story| %>
-      <div class="post-container container">
-        <div class="row post-header">
-          <div class="col"><%= link_to story.user.email, story.user %></div>
-        </div>
-
-        <div class="post-content"><%= story.content %></div>
-
-        <div class="row post-footer justify-content-between">
-          <div class="col-auto"><%= link_to story.created_at, story %></td></div>
-          <div class="col-auto">
-            <%= link_to 'Delete', story, method: :delete, data: { confirm: 'Are you sure?' } %>
-            |
-            <%= link_to 'Edit', edit_story_path(story) %>
-          </div>
-          <div class="col-auto"><%= story.views_count %> view(s)</div>
-        </div>
-      </div>
-    <% end %>
-
-  </div>
+<div class="post-container container">
+  <!-- <textarea class="form-control" placeholder="New story?" name="post-content"></textarea> -->
+  <%= link_to 'New Story', new_story_path %>
 </div>
 
+<% @stories.each do |story| %>
+  <div class="post-container container">
+    <div class="row post-header">
+      <div class="col"><%= link_to story.user.email, story.user %></div>
+    </div>
 
+    <div class="post-content"><%= story.content %></div>
 
-<%= link_to 'New Story', new_story_path %>
+    <div class="row post-footer justify-content-between">
+      <div class="col-auto"><%= link_to story.created_at, story %></td></div>
+      <% if current_user == story.user %>
+        <div class="col-auto">
+          <%= link_to 'Delete', story, method: :delete, data: { confirm: 'Are you sure?' } %>
+          |
+          <%= link_to 'Edit', edit_story_path(story) %>
+        </div>
+      <% end %>
+      <div class="col-auto"><%= link_to "#{story.views_count} view(s)", story %></div>
+    </div>
+  </div>
+<% end %>

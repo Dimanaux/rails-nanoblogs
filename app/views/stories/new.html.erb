@@ -1,5 +1,9 @@
 <h1>New Story</h1>
 
-<%= render 'form', story: @story %>
+<%= form_with model: @article do |f| %>
+  <%= f.text_area :content, class: 'form-control' %>
+  <%= f.submit 'Create story', class: 'btn btn-link' %>
+<% end %>
+
 
 <%= link_to 'Back', stories_path %>
