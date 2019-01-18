@@ -1,9 +1,8 @@
 <h1>New Story</h1>
 
-<%= form_with model: @article do |f| %>
+<%= form_with model: @story do |f| %>
   <%= f.text_area :content, class: 'form-control' %>
-  <%= f.submit 'Create story', class: 'btn btn-link' %>
+  <%= f.submit 'Create', class: 'btn btn-primary' %>
 <% end %>
-
 
 <%= link_to 'Back', stories_path %>
