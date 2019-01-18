@@ -10,6 +10,11 @@ class StoriesController < ApplicationController
   # GET /stories/1
   # GET /stories/1.json
   def show
+    @story.views_count += 1
+    unless @story.save
+      format.html { render :new }
+      format.json { render json: @story.errors, status: :unprocessable_entity }
+    end
   end
 
   # GET /stories/new
