@@ -62,6 +62,8 @@ class CommentsController < ApplicationController
 
     def set_story
       @story = Story.find(params[:story_id])
+    rescue
+      @story = @comment.story
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

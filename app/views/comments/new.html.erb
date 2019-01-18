@@ -2,6 +2,31 @@
 
 <%= render 'stories/story_preview', story: @story %>
 
-<%= render 'form', comment: @comment %>
+<!-- TODO idk how to deal with copy paste -->
+<!-- the same code in ./_form.html.erb -->
+<%= form_for(@comment, local: true, url: story_comments_path(@story.id)) do |form| %>
+  <% if @comment.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@comment.errors.count, "error") %> prohibited this comment from being saved:</h2>
+
+      <ul>
+      <% @comment.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :content %>
+    <%= form.text_area :content, class: 'form-control' %>
+  </div>
+
+  <%= form.hidden_field :story_id %>
+
+  <div class="actions">
+    <%= form.submit 'Submit', class: 'btn btn-primary' %>
+  </div>
+<% end %>
 
 <%= link_to 'Back', @story %>
