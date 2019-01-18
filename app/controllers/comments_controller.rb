@@ -1,6 +1,6 @@
 class CommentsController < ApplicationController
   before_action :set_comment, only: [:edit, :update, :destroy]
-  before_action :set_story, only: [:edit, :update, :create]
+  before_action :set_story, only: [:new, :edit, :update, :create]
 
   # GET /comments/new
   def new

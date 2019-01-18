@@ -13,9 +13,9 @@ Rails.application.routes.draw do
   resources :stories do
     resources :comments, shallow: true
   end
-  
+
   resources :articles do
-    resources :comments, only: [:index, :new, :create]
+    resources :comments, only: [:index, :new, :edit, :create]
   end
   resources :comments, only: [:new, :edit, :update, :destroy, :index]
 
