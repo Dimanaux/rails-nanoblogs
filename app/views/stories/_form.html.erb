@@ -13,20 +13,11 @@
 
   <div class="field">
     <%= form.label :content %>
-    <%= form.text_area :content %>
-  </div>
-
-  <div class="field">
-    <%= form.label :views_count %>
-    <%= form.number_field :views_count %>
-  </div>
-
-  <div class="field">
-    <%= form.label :user_id %>
-    <%= form.text_field :user_id %>
+    <%= form.text_area :content, class: 'form-control' %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit 'Edit', class: 'btn btn-primary' %>
   </div>
 <% end %>
+

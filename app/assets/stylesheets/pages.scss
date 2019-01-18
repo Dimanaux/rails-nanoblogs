@@ -13,6 +13,10 @@ body {
   background-color: $bg-color;
 }
 
+h3 {
+  margin: 1em 0;
+}
+
 a {
   transition-duration: $animation-duration;
   color: $medium-black;

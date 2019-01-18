@@ -16,7 +16,7 @@
 
     <% if current_user == @story.user %>
       <div class="col-auto">
-        <%= link_to 'Delete', story, method: :delete, data: { confirm: 'Are you sure?' } %>
+        <%= link_to 'Delete', @story, method: :delete, data: { confirm: 'Are you sure?' } %>
         |
         <%= link_to 'Edit', edit_story_path(@story) %>
       </div>
@@ -27,4 +27,11 @@
   </div>
 </div>
 
-<%= link_to 'Back', stories_path %>
+<h3>Comments:</h3>
+
+<% @story.comments.each do |comment| %>
+  <%= render 'comment', comment: comment %>
+  <hr>
+<% end %>
+
+
