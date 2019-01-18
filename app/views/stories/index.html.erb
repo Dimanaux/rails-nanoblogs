@@ -1,26 +1,7 @@
 <div class="post-container container">
-  <!-- <textarea class="form-control" placeholder="New story?" name="post-content"></textarea> -->
   <%= link_to 'New Story', new_story_path %>
 </div>
 
 <% @stories.each do |story| %>
-  <div class="post-container container">
-    <div class="row post-header">
-      <div class="col"><%= link_to story.user.email, story.user %></div>
-    </div>
-
-    <div class="post-content"><%= story.content %></div>
-
-    <div class="row post-footer justify-content-between">
-      <div class="col-auto"><%= link_to story.created_at, story %></td></div>
-      <% if current_user == story.user %>
-        <div class="col-auto">
-          <%= link_to 'Delete', story, method: :delete, data: { confirm: 'Are you sure?' } %>
-          |
-          <%= link_to 'Edit', edit_story_path(story) %>
-        </div>
-      <% end %>
-      <div class="col-auto"><%= link_to "#{story.views_count} view(s)", story %></div>
-    </div>
-  </div>
+  <%= render 'story_preview', story: story %>
 <% end %>
