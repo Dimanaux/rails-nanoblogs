@@ -1,24 +1,14 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+* Ruby version -- 2.5.1
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
+* System dependencies -- Postgresql 10
 
 * Database creation
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
+    1. Install posgresql
+    2. Create user `Nanoblogs` with password `Nanoblogs`
+    3. Create databases `Nanoblogs_development`, `Nanoblogs` and `Nanoblogs_test`
 
 * Deployment instructions
-
-* ...
+    -- run `$ rails server`
