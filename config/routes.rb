@@ -1,8 +1,18 @@
 Rails.application.routes.draw do
-  resources :stories
   root to: 'pages#home'
+  
   devise_for :users
-  resources :users
-  resources :comments
+  get '/users/:id', to: 'users#show'
+
+  resources :stories
+  resources :users, only: [:show] do
+    resources :stories, only: [:index]
+  end
+
+  # resources :comments
+  resources :stories do
+    resources :comments, shallow: true
+  end
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
