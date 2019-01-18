@@ -11,7 +11,7 @@
 
   <div class="row post-footer justify-content-between">
     <div class="col-auto">
-      <%= link_to story.created_at, story %>
+      <%= link_to story.created_at.to_date, story %>
     </div>
 
     <% if current_user == story.user %>
@@ -22,7 +22,8 @@
       </div>
     <% end %>
     <div class="col-auto">
-      <%= link_to "#{story.views_count} view(s)", story %>
+      <%= link_to "#{story.views_count} view(s)", story %> |
+      <%= link_to "#{story.comments.size} comment(s)", story %>
     </div>
   </div>
 </div>

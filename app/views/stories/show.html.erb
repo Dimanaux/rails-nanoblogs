@@ -27,11 +27,17 @@
   </div>
 </div>
 
-<h3>Comments:</h3>
+<% if @story.comments.any? %>
+  <h3>Comments (<%= @story.comments.size %>):</h3>
 
-<% @story.comments.each do |comment| %>
-  <%= render 'comments/comment', comment: comment %>
-  <hr>
+  <div class="container comments">
+    <% @story.comments.each do |comment| %>
+      <%= render 'comments/comment', comment: comment %>
+      <hr>
+    <% end %>
+  </div>
+<% else %>
+  <div class="container comments">
+    <h4>No comments yet.</h4>
+  </div>
 <% end %>
-
-
