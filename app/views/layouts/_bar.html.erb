@@ -1,0 +1,21 @@
+<div class="row">
+  <div class="col-4 header-item header-itemp-small">
+    <% if current_user %>
+      <%= link_to current_user.email, current_user %>
+    <% end %>
+  </div> 
+
+  <div class="col-4 header-item">
+    <%= link_to 'Nanoblogs', root_path, class: 'page-header' %>
+  </div>
+
+  <div class="col-4 header-item header-itemp-small">
+    <% if current_user %>
+      <%= link_to 'sign out', destroy_user_session_path, method: :delete %>
+    <% else %>
+      <%= link_to 'sign up', new_user_registration_path %>
+      or
+      <%= link_to 'sign in', new_user_session_path %>
+    <% end %>
+  </div>
+</div>

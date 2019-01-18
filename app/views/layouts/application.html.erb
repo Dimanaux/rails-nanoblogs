@@ -10,6 +10,13 @@
   </head>
 
   <body>
-    <%= yield %>
+    <div class="container">
+      <%= render 'layouts/bar' %>  
+
+      <div class="col-md-6 offset-md-3 container">
+        <%= render 'layouts/alerts' %>
+        <%= yield %>
+      </div>
+    </div>
   </body>
 </html>

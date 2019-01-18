@@ -1,0 +1,73 @@
+// Place all the styles related to the pages controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+$bg-color: rgba(160, 80, 0, 0.05);
+$medium-black: rgba(0, 0, 0, 0.6);
+$light-black: rgba(0, 0, 0, 0.3);
+$strong-black: rgba(0, 0, 0, 0.8);
+
+$default-pad: 1em;
+$small-pad: 0.5em;
+$medium-pad: 1.3em;
+$large-pad: 2.5em;
+
+$animation-duration: 0.5s;
+
+body {
+  background-color: $bg-color;
+}
+
+h3 {
+  margin: $default-pad 0;
+}
+
+h4 {
+  margin: $default-pad 0;
+  color: $light-black;
+  text-align: center;
+}
+
+a {
+  transition-duration: $animation-duration;
+  color: $medium-black;
+  text-decoration: underline;
+}
+
+a:hover {
+  transition-duration: $animation-duration;
+  color: black;
+  text-decoration: none;
+}
+
+.page-header {
+  color: $medium-black;
+  font-size: $large-pad;
+}
+
+.header-item {
+  text-align: center;
+}
+
+.header-itemp-small {
+  margin: $medium-pad 0;
+}
+
+.post-container {
+  box-shadow: 0 1px $light-black;
+  margin-top: $default-pad;
+  padding-bottom: $default-pad;
+}
+
+.post-header {
+  color: $light-black;
+}
+
+.post-content {
+  color: $strong-black;
+  margin: $small-pad 0;
+}
+
+.post-footer {
+  color: $light-black;
+}

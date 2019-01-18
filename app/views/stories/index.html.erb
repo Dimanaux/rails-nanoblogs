@@ -1,0 +1,7 @@
+<div class="post-container container">
+  <%= link_to 'New Story', new_story_path %>
+</div>
+
+<% @stories.each do |story| %>
+  <%= render 'story_preview', story: story %>
+<% end %>

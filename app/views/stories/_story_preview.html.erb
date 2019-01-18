@@ -1,0 +1,29 @@
+<div class="post-container container">
+  <div class="row post-header">
+    <div class="col">
+      <%= link_to story.user.email, story.user %>
+    </div>
+  </div>
+
+  <div class="post-content">
+    <%= story.content %>
+  </div>
+
+  <div class="row post-footer justify-content-between">
+    <div class="col-auto">
+      <%= link_to story.created_at.to_date, story %>
+    </div>
+
+    <% if current_user == story.user %>
+      <div class="col-auto">
+        <%= link_to 'Delete', story, method: :delete, data: { confirm: 'Are you sure?' } %>
+        |
+        <%= link_to 'Edit', edit_story_path(story) %>
+      </div>
+    <% end %>
+    <div class="col-auto">
+      <%= link_to "#{story.views_count} view(s)", story %> |
+      <%= link_to "#{story.comments.size} comment(s)", story %>
+    </div>
+  </div>
+</div>

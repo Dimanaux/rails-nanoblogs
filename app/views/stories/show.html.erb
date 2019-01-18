@@ -1,0 +1,49 @@
+<div class="post-container container">
+  <div class="row post-header">
+    <div class="col">
+      Author: <%= link_to @story.user.email, @story.user %>
+    </div>
+  </div>
+
+  <div class="post-content">
+    <%= @story.content %>
+  </div>
+
+  <div class="row post-footer justify-content-between">
+    <div class="col-auto">
+      Created at <%= @story.created_at %>
+    </div>
+
+    <% if current_user == @story.user %>
+      <div class="col-auto">
+        <%= link_to 'Delete', @story, method: :delete, data: { confirm: 'Are you sure?' } %>
+        |
+        <%= link_to 'Edit', edit_story_path(@story) %>
+      </div>
+    <% end %>
+    <div class="col-auto">
+      <%= @story.views_count %> view(s)
+    </div>
+  </div>
+</div>
+
+
+<div class="container comments">
+  <h3>Comments (<%= @story.comments.size %>):</h3>
+
+  <% if @story.comments.any? %>
+    <% @story.comments.each do |comment| %>
+      <%= render 'comments/comment', comment: comment %>
+      <hr>
+    <% end %>
+  <% else %>
+    <h4>No comments yet.</h4>
+  <% end %>
+</div>
+
+<div class="row justify-content-end">
+  <div class="col-auto">
+    <%= link_to 'New comment!', new_story_comment_path(@story) %>
+  </div>
+</div>
+
