@@ -1,31 +1,56 @@
 <p id="notice"><%= notice %></p>
 
+
 <h1>Stories</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Content</th>
-      <th>Views count</th>
-      <th>User</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
 
-  <tbody>
+<% if current_user %>
+  <%= link_to 'sign out', destroy_user_session_path, method: :delete %>
+<% else %>
+  <%= link_to 'sign up', new_user_registration_path %>
+  or
+  <%= link_to 'sign in', new_user_session_path %>
+<% end %>
+
+
+
+<div class="container">
+
+  <div class="row page-header justify-content-md-center" href="#">
+    <a href="">Nanoblogs</a>
+  </div>
+
+  <div class="col-md-6 offset-md-3 container">
+
+    <div class="post-container container">
+      <textarea class="form-control" placeholder="New story?" name="post-content"></textarea>
+    </div>
+
+
+    <!-- posts here -->
     <% @stories.each do |story| %>
-      <tr>
-        <td><%= story.content %></td>
-        <td><%= story.views_count %></td>
-        <td><%= story.user %></td>
-        <td><%= link_to 'Show', story %></td>
-        <td><%= link_to 'Edit', edit_story_path(story) %></td>
-        <td><%= link_to 'Destroy', story, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+      <div class="post-container container">
+        <div class="row post-header">
+          <div class="col"><%= link_to story.user.email, story.user %></div>
+        </div>
 
-<br>
+        <div class="post-content"><%= story.content %></div>
+
+        <div class="row post-footer justify-content-between">
+          <div class="col-auto"><%= link_to story.created_at, story %></td></div>
+          <div class="col-auto">
+            <%= link_to 'Delete', story, method: :delete, data: { confirm: 'Are you sure?' } %>
+            |
+            <%= link_to 'Edit', edit_story_path(story) %>
+          </div>
+          <div class="col-auto"><%= story.views_count %> view(s)</div>
+        </div>
+      </div>
+    <% end %>
+
+  </div>
+</div>
+
+
 
 <%= link_to 'New Story', new_story_path %>
