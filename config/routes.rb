@@ -9,10 +9,15 @@ Rails.application.routes.draw do
     resources :stories, only: [:index]
   end
 
-  # resources :comments
+  # resources for comments
   resources :stories do
     resources :comments, shallow: true
   end
+  
+  resources :articles do
+    resources :comments, only: [:index, :new, :create]
+  end
+  resources :comments, only: [:new, :edit, :update, :destroy, :index]
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

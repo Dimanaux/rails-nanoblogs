@@ -1,0 +1,5 @@
+<h2>Stories of <%= @user.email %></h2>
+
+<% @user.stories.each do |story| %>
+  <%= render 'stories/story_preview', story: story %>  
+<% end %>

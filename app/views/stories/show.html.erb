@@ -27,17 +27,23 @@
   </div>
 </div>
 
-<% if @story.comments.any? %>
+
+<div class="container comments">
   <h3>Comments (<%= @story.comments.size %>):</h3>
 
-  <div class="container comments">
+  <% if @story.comments.any? %>
     <% @story.comments.each do |comment| %>
       <%= render 'comments/comment', comment: comment %>
       <hr>
     <% end %>
-  </div>
-<% else %>
-  <div class="container comments">
+  <% else %>
     <h4>No comments yet.</h4>
+  <% end %>
+</div>
+
+<div class="row justify-content-end">
+  <div class="col-auto">
+    <%= link_to 'New comment!', new_story_comment_path(@story) %>
   </div>
-<% end %>
+</div>
+
