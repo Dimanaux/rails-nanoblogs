@@ -13,7 +13,7 @@
 
   <div class="field">
     <%= form.label :content %>
-    <%= form.text_area :content, class: 'form-control' %>
+    <%= form.text_area :content, class: 'form-control', html: { minlength: 10 } %>
   </div>
 
   <div class="actions">
