@@ -41,4 +41,4 @@ Conclusions (how to create rails app from scratch):
     23. $ rails generate model Comment content:text
     24. edit migration files at db/migrate/*, models files at app/models/*
     25. edit controlllers do add basic functionality
-    26. edit pages to look pretty
+    26. edit pages to make them look pretty
