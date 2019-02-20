@@ -1,8 +1,8 @@
 # README
 
-* Ruby version -- 2.5.1
+* Ruby version - 2.5.1
 
-* System dependencies -- Postgresql 10
+* System dependencies - Postgresql 10+
 
 * Database creation
 
@@ -11,7 +11,7 @@
     3. Create databases `Nanoblogs_development`, `Nanoblogs` and `Nanoblogs_test`
 
 * Deployment instructions
-    -- run `$ rails server`
+    - run `$ rails server`
 
 
 Conclusions (how to create rails app from scratch):
