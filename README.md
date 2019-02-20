@@ -6,7 +6,7 @@
 
 * Database creation
 
-    1. Install posgresql
+    1. Install PostgreSQL
     2. Create user `Nanoblogs` with password `Nanoblogs`
     3. Create databases `Nanoblogs_development`, `Nanoblogs` and `Nanoblogs_test`
 
