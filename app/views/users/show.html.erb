@@ -1,5 +1,5 @@
 <h2>Stories of <%= @user.email %></h2>
 
-<% @user.stories.order(:created_at, :desc).each do |story| %>
+<% @user.stories.order(created_at: :desc).each do |story| %>
   <%= render 'stories/story_preview', story: story %>  
 <% end %>
